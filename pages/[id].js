@@ -11,7 +11,7 @@ const MealDetail = ({ meal }) => {
 
 	if (!!Object.keys(meal ?? {}).length) {
 		const ingredients = Object.entries(meal)
-			.map(([k, v]) => k.toString().includes('strIngredient') && !!v.trim().length && v)
+			.map(([k, v]) => k.toString().includes('strIngredient') && !!v?.trim().length && v)
 			.filter(Boolean);
 		return (
 			<>
