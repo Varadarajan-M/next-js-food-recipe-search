@@ -4,8 +4,8 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: 'Poppins', sans-serif;
-	/* background-color: #fff; */
-	background-color: #f0ff4c;
+	background-color: #fff;
+	/* background-color: #f0ff4c; */
 	background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
 	height: 100%;
 }
