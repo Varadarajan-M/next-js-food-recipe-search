@@ -8,11 +8,12 @@ export default function Home() {
 	const inputRef = useRef(null);
 	const [meals, setMeals] = useState([]);
 	const [loading, setLoading] = useState(false);
-	const router = useRouter();
 	const onSubmit = async () => {
 		if (!!inputRef.current.value.trim().length) {
 			setLoading(true);
-			const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${inputRef.current.value}`);
+			const res = await fetch(
+				`https://www.themealdb.com/api/json/v1/1/search.php?s=${inputRef.current.value}`,
+			);
 			const data = await res.json();
 			setMeals(() => data?.meals);
 			setLoading(false);
@@ -22,7 +23,10 @@ export default function Home() {
 		<div className={styles.container}>
 			<Head>
 				<title>Food Recipe App</title>
-				<meta name='description' content='The best place to find and cook your favourite recipes.' />
+				<meta
+					name='description'
+					content='The best place to find and cook your favourite recipes.'
+				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
@@ -41,7 +45,9 @@ export default function Home() {
 					{loading && (
 						<h2 style={{ textAlign: 'center' }}>
 							{' '}
-							Hang on! <br /> Getting meals for {inputRef.current?.value}...{' '}
+							Hang on! <br /> Getting meals for {
+								inputRef.current?.value
+							}...{' '}
 						</h2>
 					)}
 					{!!meals?.length && !loading ? (
@@ -52,7 +58,7 @@ export default function Home() {
 								actionText={'View More'}
 								reciepe={meal.strMeal}
 								type={`${meal.strCategory} , ${meal.strArea}`}
-								onBtnClick={() => router.push(`/${meal.idMeal}`)}
+								linkTo={`/${meal.idMeal}`}
 							/>
 						))
 					) : !!inputRef.current?.value && !loading ? (

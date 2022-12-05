@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import Card from './Card';
 
@@ -17,7 +17,9 @@ function RecipeCard(props) {
 				</div>
 
 				<div className='recipecard-footer'>
-					<button onClick={props.onBtnClick}>{props.actionText}</button>
+					<Link href={props.linkTo}>
+						<button>{props.actionText}</button>
+					</Link>
 				</div>
 			</div>
 		</Card>
